@@ -3,9 +3,8 @@
 
 
 Exercises
-=
-
 ---
+
 - [ ] Dive into Python
 
 Ex00:
@@ -13,6 +12,7 @@ Ex00:
 Q:
 
 In the script editor, use an import statement to import statsmodels.
+
 Add an as statement to alias statsmodels to sm.
 Add an as statement to alias seaborn to sns.
 
