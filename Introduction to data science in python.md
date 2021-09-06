@@ -14,12 +14,14 @@ Q:
 In the script editor, use an import statement to import statsmodels.
 
 Add an as statement to alias statsmodels to sm.
+
 Add an as statement to alias seaborn to sns.
+
 
 A:
 import statsmodels
 import statsmodels as sm
-import seaborn as sns
+import seaborn as sns  
 
 
 Ex 01:
