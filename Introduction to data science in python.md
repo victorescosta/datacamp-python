@@ -443,11 +443,347 @@ Fred Frequentist and Gertrude Cox - CORRECT
 Ronald Aylmer Fisher and Kirstine Smith
 
 ---
-3 - Plotting Data with matplotlib
+3 - Plotting data with matplotlib
 =
 
----
-4 - Different Types of Plots
+- [ ] Creating line plots
+
+Ex00:
+
+Q:
+From matplotlib, import the module pyplot under the alias plt
+Plot Officer Deshaun's hours worked using the columns day_of_week and
+hours_worked from deshaun.
+Display the plot.
+
+
+A:
+# From matplotlib, import pyplot under the alias plt
+
+from matplotlib import pyplot as plt
+# Plot Officer Deshaun's hours_worked vs. day_of_week
+
+
+plt.plot(deshaun.day_of_week, deshaun.hours_worked)
+
+
+# Display Deshaun's plot
+
+
+plt.show()
+
+Ex01:
+
+Q:
+
+
+Plot Officer Aditya's time worked with day_of_week on the x-axis and
+hours_worked on the y-axis.
+
+Plot Officer Mengfei's time worked with day_of_week on the x-axis and
+hours_worked on the y-axis.
+
+
+A:
+
+# Plot Officer Deshaun's hours_worked vs. day_of_week
+
+plt.plot(deshaun.day_of_week, deshaun.hours_worked)
+
+
+# Plot Officer Aditya's hours_worked vs. day_of_week
+
+plt.plot(aditya.day_of_week, aditya.hours_worked)
+
+
+# Plot Officer Mengfei's hours_worked vs. day_of_week
+
+plt.plot(mengfei.day_of_week, mengfei.hours_worked)
+
+
+# Display all three line plots
+
+plt.show()
+
+One of the officers was removed from the investigation on Wednesday because of
+an emergency at a different station house. That office did not return on
+Thursday or Friday. Which color line represents that officer?
+
+blue
+
+green
+
+orange   - CORRECT
+
+
+- [ ] Adding text to plots
+
+Ex00:
+
+Q:
+Using the keyword label, label Deshaun's plot as "Deshaun".
+Add labels to Mengfei's ("Mengfei") and Aditya's ("Aditya") plots.
+Nothing is displaying yet! Add a command to make the legend display.
+
+
+A:
+
+# Add a label to Deshaun's plot
+
+plt.plot(deshaun.day_of_week, deshaun.hours_worked, label="Deshaun")
+
+
+# Officer Aditya
+
+plt.plot(aditya.day_of_week, aditya.hours_worked, label="Aditya")
+
+
+# Officer Mengfei
+
+plt.plot(mengfei.day_of_week, mengfei.hours_worked, label="Mengfei")
+
+# Add a command to make the legend display
+
+plt.legend()
+
+
+# Display plot
+
+plt.show()
+
+
+One of the officers did not start working on the case until Wednesday. Which
+officer?
+
+
+Deshaun
+
+Aditya
+
+Mengfei  - CORRECT ANSWER
+
+
+Ex01:
+
+Q:
+
+Add a descriptive title to the chart.
+
+Add a label for the y-axis.
+
+A:
+
+# Lines
+
+plt.plot(deshaun.day_of_week, deshaun.hours_worked, label='Deshaun')
+
+plt.plot(aditya.day_of_week, aditya.hours_worked, label='Aditya')
+
+plt.plot(mengfei.day_of_week, mengfei.hours_worked, label='Mengfei')
+
+
+# Add a title
+
+plt.title("Official's hours worked")
+
+
+# Add y-axis label
+
+plt.ylabel("Hours worked")
+
+
+# Legend
+
+plt.legend()
+
+# Display plot
+
+plt.show()
+
+
+Ex02:
+
+Q:
+Place the annotation "Missing June data" at the point (2.5, 80)
+
+A:
+# Create plot
+
+plt.plot(six_months.month, six_months.hours_worked)
+
+
+# Add annotation "Missing June data" at (2.5, 80)
+
+plt.text(2.5, 80, "Missing June data")
+
+
+# Display graph
+
+plt.show()
+
+- [ ] Styling graphs
+
+Ex00:
+
+Q:
+
+
+Change the color of Phoenix to "DarkCyan".
+
+Make the Los Angeles line dotted.
+
+Add square markers to Philadelphia.
+
+A:
+
+# Change the color of Phoenix to `"DarkCyan"`
+
+plt.plot(data["Year"], data["Phoenix Police Dept"], label="Phoenix", color="DarkCyan")
+
+
+# Make the Los Angeles line dotted
+
+plt.plot(data["Year"], data["Los Angeles Police Dept"], label="Los Angeles", linestyle=':')
+
+
+# Add square markers to Philedelphia
+
+plt.plot(data["Year"], data["Philadelphia Police Dept"], label="Philadelphia", marker='s')
+
+
+Ex01:
+
+Q:
+
+Change the plotting style to "fivethirtyeight".
+
+Change the plotting style to "ggplot".
+
+View all styles by typing print(plt.style.available) in the console
+
+Pick one of those styles and see what it looks like
+
+A:
+# Change the style to fivethirtyeight / ggplot / another style
+
+plt.style.use('fivethirtyeight')  // ggplot / another style
+
+
+# Plot lines
+
+plt.plot(data["Year"], data["Phoenix Police Dept"], label="Phoenix")
+
+plt.plot(data["Year"], data["Los Angeles Police Dept"], label="Los Angeles")
+
+plt.plot(data["Year"], data["Philadelphia Police Dept"], label="Philadelphia")
+
+
+# Add a legend
+
+plt.legend()
+
+
+# Display the plot
+
+plt.show()
+
+
+Ex02:
+
+Q:
+
+
+Plot the letter frequencies from the ransom note. The x-values should be ransom
+letter. The y-values should be ransom.frequency. The label should be the string
+'Ransom'. The line should be dotted and gray.
+
+A:
+
+# x should be ransom.letter and y should be ransom.frequency
+plt.plot(ransom.letter, ransom.frequency,
+	# Label should be "Ransom"
+	label="Ransom",
+	# Plot the ransom letter as a dotted gray line
+	linestyle=':', color='gray')
+
+# Display the plot
+plt.show()
+
+Q:
+
+Plot a line for the data in suspect1. Use a keyword argument to label that line
+'Fred Frequentist'). // also suspect2 with Gertrude Cox
+
+A:
+
+# Plot each line
+plt.plot(ransom.letter, ransom.frequency,
+		label='Ransom', linestyle=':', color='gray')
+
+# X-values should be suspect1.letter
+# Y-values should be suspect1.frequency
+# Label should be "Fred Frequentist"
+plt.plot(suspect1.letter, suspect1.frequency, label="Fred Frequentist")
+
+# Display the plot
+plt.show()
+
+Q:
+Label the x-axis (Letter) and the y-axis (Frequency), and add a legend.
+
+A:
+
+# Plot each line
+plt.plot(ransom.letter, ransom.frequency,
+		label='Ransom', linestyle=':', color='gray')
+plt.plot(suspect1.letter, suspect1.frequency, label='Fred Frequentist')
+plt.plot(suspect2.letter, suspect2.frequency, label='Gertrude Cox')
+
+# Add x- and y-labels
+plt.xlabel("Letter")
+plt.ylabel("Frequency")
+
+# Add a legend
+plt.legend()
+
+# Display plot
+plt.show()
+
+4 - Different types of plots
 =
+
+- [ ] Making a scatter plot
+
+Ex00:
+
+Q:
+
+A:
+
+
+
+- [ ] Making a bar chart
+
+Ex00:
+
+Q:
+
+A:
+
+- [ ] Making a histogram
+
+Ex00:
+
+Q:
+
+A:
+
+
+
+
+
+
+
+
 
 ---
