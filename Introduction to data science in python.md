@@ -758,7 +758,42 @@ Ex00:
 
 Q:
 
+Display the first five rows of the DataFrame and determine which columns to plot
+Create a scatter plot of the data in cellphone.
+
+
 A:
+# Explore the data
+print(cellphone.head())
+
+# Create a scatter plot of the data from the DataFrame cellphone
+plt.scatter(cellphone.x, cellphone.y)
+
+# Add labels
+plt.ylabel('Latitude')
+plt.xlabel('Longitude')
+
+# Display the plot
+plt.show()
+
+Q:
+Change the color of the points to 'red'.
+Change the marker shape to square.
+Change the transparency of the scatterplot to 0.1.
+
+A:
+# Change the marker color to red
+plt.scatter(cellphone.x, cellphone.y,
+			color='red',
+			marker='s',
+			alpha=0.1)
+
+# Add labels
+plt.ylabel('Latitude')
+plt.xlabel('Longitude')
+
+# Display the plot
+plt.show()
 
 
 
@@ -767,21 +802,144 @@ A:
 Ex00:
 
 Q:
+Display the DataFrame hours using a print command.
+
 
 A:
+# Display the DataFrame hours using print
+print(hours.head())
+
+Q:
+Create a bar chart of the column avg_hours_worked for each officer from the
+DataFrame hours.
+
+A:
+# Create a bar plot from the DataFrame hours
+plt.bar(hours.officer, hours.avg_hours_worked)
+
+# Display the plot
+plt.show()
+
+Q:
+Use the column std_hours_worked (the standard deviation of the hours worked) to
+add error bars to the bar chart.
+
+A:
+# Create a bar plot from the DataFrame hours
+plt.bar(hours.officer, hours.avg_hours_worked,
+		# Add error bars
+		yerr=hours.std_hours_worked)
+
+
+Ex01:
+
+Q:
+
+Create a bar plot of the time each officer spends on desk_work.
+Label that bar plot "Desk Work".
+
+A:
+
+# Plot the number of hours spent on desk work
+plt.bar(hours.officer, hours.desk_work,
+		label='Desk Work')
+
+# Display the plot
+plt.show()
+
+Q:
+
+Create a bar plot for field_work whose bottom is the height of desk_work.
+Label the field_work bars as "Field Work" and add a legend.
+
+A:
+
+# Plot the number of hours spent on desk work
+plt.bar(hours.officer, hours.desk_work, label='Desk Work')
+
+# Plot the hours spent on field work on top of desk work
+plt.bar(hours.officer, hours.field_work,
+		bottom=hours.desk_work,
+		label='Field Work')
+
+# Add a legend
+plt.legend()
+
+# Display the plot
+plt.show()
+
+
+
+
 
 - [ ] Making a histogram
 
 Ex00:
 
 Q:
+Create a histogram of the column weight from the DataFrame puppies.
+Change the number of bins to 50.
+Change the range to start at 5 and end at 35.
+
+
+
 
 A:
+# Create a histogram of the column weight
+# from the DataFrame puppies
+plt.hist(puppies.weight,
+		bins=50)
+# Change the range to start at 5 and end at 35
+plt.hist(puppies.weight,
+        range=(5, 35))
 
+# Add labels
+plt.xlabel('Puppy Weight (lbs)')
+plt.ylabel('Number of Puppies')
 
+# Display
+plt.show()
 
+Ex01:
 
+Q:
+Create a histogram of gravel.radius.
 
+A:
+# Create a histogram of gravel.radius
+plt.hist(gravel.radius)
+
+# Display histogram
+plt.show()
+
+Q:
+Modify the histogram such that the histogram is divided into 40 bins and the
+range is from 2 to 8.
+Normalize your histogram so that the sum of the bins adds to 1.
+
+A:
+# Create a histogram
+# Range is 2 to 8, with 40 bins
+plt.hist(gravel.radius,
+		bins=40,
+		range=(2, 8),
+		density=True)
+
+# Display histogram
+plt.show()
+
+Q:
+Label the x-axis (Gravel Radius (mm)), the y-axis (Frequency), and the title
+(Sample from Shoeprint).
+
+A:
+# Label plot
+plt.xlabel('Gravel Radius (mm)')
+plt.ylabel('Frequency')
+plt.title('Sample from Shoeprint')
+
+# Display histogram
+plt.show()
 
 
 
